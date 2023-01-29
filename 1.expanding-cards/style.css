@@ -5,40 +5,47 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
 }
 .container {
-    display: flex;
     width: 90vw;
+    display: flex;
 }
 .container .panel {
-    background-size: cover;
+    position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    flex: 0.5;
+    background-size: cover;
     height: 80vh;
-    border-radius: 50px;
+    flex: 0.5;
     margin: 10px;
-    cursor: pointer;
-    color: #fff;
-    position: relative;
-    transition: all 800ms ease-in 0s;
+    border-radius: 50px;
+    transition: all 800ms ease-in;
 }
 .panel h3 {
     position: absolute;
     left: 20px;
     bottom: 20px;
-    margin: 0;
     opacity: 0;
-    
 }
+
 .container .active {
     flex: 5;
 }
 
 .panel.active h3 {
     opacity: 1;
-    transition: opacity 0.3s ease 0.4s;
+    transition: opacity 0.3s ease-in 0.5s;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+    }
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
 }
