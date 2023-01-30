@@ -8,7 +8,7 @@ let currentActive = 1
 //点击prev的回调函数
 prev.addEventListener('click', () => {
     currentActive -= 1
-    if(currentActive < 1) {
+    if (currentActive < 1) {
         currentActive = 1
     }
     upDataActiveClass()
@@ -17,7 +17,7 @@ prev.addEventListener('click', () => {
 //点击next的回调函数
 next.addEventListener('click', () => {
     currentActive += 1
-    if(currentActive > circles.length) {
+    if (currentActive > circles.length) {
         currentActive = circles.length
     }
     upDataActiveClass()
@@ -25,21 +25,21 @@ next.addEventListener('click', () => {
 
 //更新进度条显示的功能函数
 function upDataActiveClass() {
-    circles.forEach( (circle, index) => {
+    circles.forEach((circle, index) => {
         circle.classList.remove('active')
-        if(index < currentActive) {
+        if (index < currentActive) {
             circle.classList.add("active")
         }
     })
 
     let actives = document.querySelectorAll('.active')
-    progress.style.width = (actives.length -1) / (circles.length - 1) * 100 + '%'
+    progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%'
 
-    if(actives.length === 1) {
+    if (actives.length === 1) {
         prev.disabled = true
-    }else if(actives.length === circles.length) {
+    } else if (actives.length === circles.length) {
         next.disabled = true
-    }else {
+    } else {
         prev.disabled = false
         next.disabled = false
     }
