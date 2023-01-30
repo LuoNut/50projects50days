@@ -1,55 +1,46 @@
 let progress = document.getElementById("progress")
-let pre = document.getElementById("pre")
+let prev = document.getElementById("prev")
 let next = document.getElementById("next")
 let circles = document.querySelectorAll(".circle")
 
-//记录当前进度
+//记录当前进度条的进度
 let currentActive = 1
-
-//点击pre按钮
-pre.addEventListener("click", () => {
-    console.log(currentActive);
+//点击prev的回调函数
+prev.addEventListener('click', () => {
     currentActive -= 1
     if(currentActive < 1) {
         currentActive = 1
     }
-    console.log(currentActive);
-    upDataProgress()
+    upDataActiveClass()
 })
 
-//点击next按钮
-next.addEventListener("click", () => {
+//点击next的回调函数
+next.addEventListener('click', () => {
     currentActive += 1
-    
     if(currentActive > circles.length) {
         currentActive = circles.length
     }
-    console.log(currentActive);
-    upDataProgress()
-
+    upDataActiveClass()
 })
 
-//更新进度条的功能函数
-function upDataProgress() {
-    //判断进度条进度
-    circles.forEach((item, index) => {
+//更新进度条显示的功能函数
+function upDataActiveClass() {
+    circles.forEach( (circle, index) => {
+        circle.classList.remove('active')
         if(index < currentActive) {
-            item.classList.add("active")
-        }else {
-            item.classList.remove("active")
+            circle.classList.add("active")
         }
     })
 
-    //显示进度条长度
-    let actives = document.querySelectorAll(".active")
-    progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + "%"
+    let actives = document.querySelectorAll('.active')
+    progress.style.width = (actives.length -1) / (circles.length - 1) * 100 + '%'
 
-    if(currentActive === 1) {
-        pre.disabled = true
-    }else if (currentActive === circles.length) {
+    if(actives.length === 1) {
+        prev.disabled = true
+    }else if(actives.length === circles.length) {
         next.disabled = true
     }else {
-        pre.disabled = false
+        prev.disabled = false
         next.disabled = false
     }
 }
