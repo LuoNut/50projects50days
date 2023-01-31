@@ -1,12 +1,15 @@
-let open = document.getElementById('open')
-let close = document.getElementById('close')
+let circleContainer = document.querySelector('.circleContainer')
 let container = document.querySelector('.container')
+let close = document.querySelector('.close')
+let open = document.querySelector('.open')
 
-open.addEventListener('click', () => {
-    container.classList.add('showNav')
-    console.log("showNav");
-})
 close.addEventListener('click', () => {
     container.classList.remove('showNav')
-    console.log("clear showNav");
+    circleContainer.classList.remove('showNav')
+    console.log('close');
+})
+open.addEventListener('click', () => {
+    container.classList.add('showNav')
+    circleContainer.classList.add('showNav')
+    console.log('open');
 })
