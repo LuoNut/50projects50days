@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    background: url(../static/image/1479104989.jpg) no-repeat center center/cover;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+.loadingText {
+    color: #fff;
+    font-size: 50px;
+}
