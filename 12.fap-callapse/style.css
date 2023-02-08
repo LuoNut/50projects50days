@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: antiquewhite;
+}
+h1 {
+    margin: 30px 0 50px;
+    text-align: center;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.faq {
+    position: relative;
+    background-color: transparent;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    overflow: hidden;
+}
+.faq.active {
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1);
+}
+.faq-title {
+    margin: 0 35px 0 0 ;
+}
+.faq-text {
+    display: none;
+    margin: 30px 0 0;
+}
+.faq.active .faq-text {
+    display: block;
+}
+.faq-toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding: 0;
+    font-size: 16px;
+}
+.faq-toggle:focus {
+    outline: none;
+}
+.faq-toggle .icon-guanbi1 {
+    display: none;
+}
+.faq.active .faq-toggle .icon-xiangxia {
+    display: none;
+}
+.faq.active .faq-toggle .icon-guanbi1 {
+    color: #fff;
+    display: block;
+}
+.faq.active .faq-toggle {
+    background-color: #9fa4a8;
+}
